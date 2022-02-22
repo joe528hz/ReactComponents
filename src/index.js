@@ -1,17 +1,53 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import faker from 'faker';
+import CommentDetail from "./components/CommentDetail";
+import ApprovalCard from "./components/ApprovalCard";
+
+
+
+const App = () => {
+    return (
+        <div className="ui container comments">
+            {/* passing the cpmmenDetail component as a child property of approvalCard component */}
+            <ApprovalCard>
+                <div>
+                    <h4>WARNING!</h4>
+                    Are you sure you want to do this?
+                </div>
+            </ApprovalCard>
+
+            <ApprovalCard>
+                <CommentDetail author="Sammuel"
+                    timeAgo="Today at 4:40PM"
+                    comment="The Quick Brown Fox jumps over the lazydog"
+                    imgSrc={faker.image.image()}
+                />
+            </ApprovalCard>
+
+            <ApprovalCard>
+                <CommentDetail
+                    author="Joel"
+                    timeAgo="Today at 5:40PM"
+                    comment="The Quick Brown Fox jumps over the lazydog"
+                    imgSrc={faker.image.image()}
+                />
+            </ApprovalCard>
+
+            <ApprovalCard>
+                <CommentDetail
+                    author="Julie"
+                    timeAgo="Today at 6:40PM"
+                    comment="The Quick Brown Fox jumps over the lazydog"
+                    imgSrc={faker.image.image()}
+                />
+            </ApprovalCard>
+        </div>
+    );
+}
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App />,
+    document.querySelector('#root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
